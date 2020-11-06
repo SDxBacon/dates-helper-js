@@ -167,3 +167,15 @@ export const getThisMonth = () => [
  * - to: 今日 23:59:59 的timestamp
  */
 export const getThisQuarter = () => _getRangeDateFromToday("months", 3);
+
+/**
+ * @name getLastMonthFromNow
+ * @returns {Number[]} [ from, to ]
+ * @description 取得距今上個月的startOfDay和當日endOfDay
+ * - from: 距今上個月的 00:00:00 timestamp
+ * - to: 今日 23:59:59 的timestamp
+ */
+export const getLastMonthFromNow = () => {
+  const lastMonth = sub(new Date(), { months: 1 });
+  return [_startOfDay(lastMonth), endOfDay()];
+};
