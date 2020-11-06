@@ -1,21 +1,40 @@
 import assert from "assert";
-import { startOfDay as oldStartOfDay } from "../OriginDate.js";
-import { startOfDay as NewStartOfDay } from "../NewDate.js";
+import {
+  startOfDay as momentStartOfDay,
+  endOfDay as momentEndOfDay,
+} from "../OriginDate.js";
+import { startOfDay, endOfDay } from "../NewDate.js";
 
-describe("startOfDay", function () {
-  describe("startOfDay()", function () {
-    it("The result of startOfDay() with NO argument given.", function () {
-      assert.strictEqual(oldStartOfDay(), NewStartOfDay());
+/**
+ * 測試 startOfDay和endOfDay
+ */
+describe("Testing function `startOfDay` and `endOfDay`", function () {
+  describe("Running function with no argument.", function () {
+    it("startOfDay.", function () {
+      assert.strictEqual(momentStartOfDay(), startOfDay());
     });
-
-    it("The result of startOfDay() with a Date object.", function () {
-      const someday = new Date("2020", "4", "13");
-      assert.strictEqual(oldStartOfDay(someday), NewStartOfDay(someday));
+    it("endOfDay.", function () {
+      assert.strictEqual(momentEndOfDay(), endOfDay());
     });
+  });
 
-    it("The result of startOfDay() with a timestamp given.", function () {
-      const timestamp = new Date();
-      assert.strictEqual(oldStartOfDay(timestamp), NewStartOfDay(timestamp));
+  describe("Passing a Date object to function.", function () {
+    const arg = new Date("2020", "4", "13");
+    it("startOfDay.", function () {
+      assert.strictEqual(momentStartOfDay(arg), startOfDay(arg));
+    });
+    it("endOfDay.", function () {
+      assert.strictEqual(momentEndOfDay(arg), endOfDay(arg));
+    });
+  });
+
+  describe("Passing a timestamp to function.", function () {
+    const arg = new Date().getTime();
+    it("startOfDay.", function () {
+      assert.strictEqual(momentStartOfDay(arg), startOfDay(arg));
+    });
+    it("endOfDay.", function () {
+      assert.strictEqual(momentEndOfDay(arg), endOfDay(arg));
     });
   });
 });
