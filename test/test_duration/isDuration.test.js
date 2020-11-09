@@ -48,12 +48,10 @@ function testSequence(arg) {
   });
 }
 
-export default function test_is_duration() {
-  describe("Testing `dates/duration/isDuration.js` methods.", function () {
-    cases.forEach(function ({ title, arg }) {
-      describe(title, function () {
-        testSequence(arg);
-      });
+describe("Testing `dates/duration/isDuration.js` methods.", function () {
+  cases.forEach(function ({ title, arg }) {
+    describe(title, function () {
+      testSequence(arg);
     });
   });
-}
+});

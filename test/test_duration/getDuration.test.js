@@ -51,12 +51,10 @@ function testSequence(arg) {
   });
 }
 
-export default function test_get_duration() {
-  describe("Testing `dates/duration/getDuration.js` methods.", function () {
-    cases.forEach(function ({ title, arg }) {
-      describe(title, function () {
-        testSequence(arg);
-      });
+describe("Testing `dates/duration/getDuration.js` methods.", function () {
+  cases.forEach(function ({ title, arg }) {
+    describe(title, function () {
+      testSequence(arg);
     });
   });
-}
+});
