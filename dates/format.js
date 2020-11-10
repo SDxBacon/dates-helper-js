@@ -1,5 +1,5 @@
-import { _parseTimeInput } from "./basic.js";
-import { formatISO9075 } from "date-fns";
+import { _parseTimeInput } from './basic.js';
+import formatISO9075 from 'date-fns/formatISO9075';
 
 /**
  * @name formatISO9075
@@ -14,4 +14,4 @@ const _formatISO9075 = (time) => {
 export { _formatISO9075 as formatISO9075 };
 
 /** */
-export const DISPLAY_FORMAT = "YYYY/MM/DD";
+export const DISPLAY_FORMAT = 'YYYY/MM/DD';
