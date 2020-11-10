@@ -1,11 +1,15 @@
 {
-  "name": "refactor-dates",
+  "name": "inum-dates-js",
   "version": "1.0.0",
+  "description": "YJTech iNum FE dates utility",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "date-fns": "^2.16.1",
-    "moment": "^2.29.1"
+    "date-fns": "^2.16.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SDxBacon/inum-dates-js"
   },
   "scripts": {
     "test": "jest"
@@ -14,6 +18,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.12.1",
     "babel-jest": "^26.6.3",
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "moment": "^2.29.1"
   }
 }
