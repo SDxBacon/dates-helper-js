@@ -1,5 +1,7 @@
-import { _parseTimeInput } from "./basic.js";
-import { getTime, startOfDay, endOfDay } from "date-fns";
+import { _parseTimeInput } from './basic.js';
+import getTime from 'date-fns/getTime';
+import endOfDay from 'date-fns/endOfDay';
+import startOfDay from 'date-fns/startOfDay';
 
 /**
  * @name startOfDay

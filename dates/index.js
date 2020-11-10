@@ -1,8 +1,8 @@
 /** exporting day module */
-export { startOfDay, endOfDay } from "./day.js";
+export { startOfDay, endOfDay } from './day.js';
 
 /** exporting format module */
-export { formatISO9075, DISPLAY_FORMAT } from "./format.js";
+export { formatISO9075, DISPLAY_FORMAT } from './format.js';
 
 /** exporting duration/getDuration */
 export {
@@ -12,7 +12,7 @@ export {
   getThisMonth,
   getThisQuarter,
   getLastMonthFromNow,
-} from "./duration/getDuration.js";
+} from './duration/getDuration.js';
 
 /** exporting duration/isDuration */
 export {
@@ -21,4 +21,4 @@ export {
   isThisMonth,
   isThisQuarter,
   isYesterday,
-} from "./duration/isDuration.js";
+} from './duration/isDuration.js';

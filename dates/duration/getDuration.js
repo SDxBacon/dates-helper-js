@@ -1,13 +1,12 @@
-import {
-  getTime,
-  startOfYesterday,
-  endOfYesterday,
-  startOfWeek,
-  startOfMonth,
-  startOfQuarter,
-} from "date-fns";
-import { startOfDay, endOfDay } from "../day.js";
-import { _getStartOfDayFromToday } from "../basic.js";
+import getTime from 'date-fns/getTime';
+import startOfWeek from 'date-fns/startOfWeek';
+import startOfMonth from 'date-fns/startOfMonth';
+import startOfQuarter from 'date-fns/startOfQuarter';
+import startOfYesterday from 'date-fns/startOfYesterday';
+import endOfYesterday from 'date-fns/endOfYesterday';
+
+import { startOfDay, endOfDay } from '../day.js';
+import { _getStartOfDayFromToday } from '../basic.js';
 
 const _getStartOfFnTime = (fn) => {
   return getTime(fn(new Date()));
@@ -72,5 +71,5 @@ export const getThisQuarter = () => [
  * - to: 今日 23:59:59 的timestamp
  */
 export const getLastMonthFromNow = () => {
-  return [_getStartOfDayFromToday("months", 1), endOfDay()];
+  return [_getStartOfDayFromToday('months', 1), endOfDay()];
 };

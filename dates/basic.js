@@ -1,5 +1,6 @@
-import { sub, isValid } from "date-fns";
-import { startOfDay, endOfDay } from "./day.js";
+import sub from 'date-fns/sub';
+import isValid from 'date-fns/isValid';
+import { startOfDay, endOfDay } from './day.js';
 
 /**
  * _parseTimeInput
