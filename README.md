@@ -1,10 +1,10 @@
 # dates-helper-js
 
-This repository is a utility to provide handled date based on **date-fns**.
+This repository is the bundle of utilities that provide unix epoch data. The whole library is written based on **[date-fns](https://github.com/date-fns/date-fns)**
 
 ---
 
-The library is available as an [npm package](https://www.npmjs.com/package/inum-dates-js). To install the package run:
+The library is available as an [npm package](https://www.npmjs.com/package/dates-helper-js). To install the package run:
 
 ```bash
 # use npm
