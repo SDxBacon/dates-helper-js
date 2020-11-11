@@ -2,6 +2,7 @@ import getTime from 'date-fns/getTime';
 import startOfWeek from 'date-fns/startOfWeek';
 import startOfMonth from 'date-fns/startOfMonth';
 import startOfQuarter from 'date-fns/startOfQuarter';
+import startOfYear from 'date-fns/startOfYear';
 import startOfYesterday from 'date-fns/startOfYesterday';
 import endOfYesterday from 'date-fns/endOfYesterday';
 
@@ -62,6 +63,15 @@ export const getThisQuarter = () => [
   _getStartOfFnTime(startOfQuarter),
   endOfDay(),
 ];
+
+/**
+ * @name getThisYear
+ * @returns {Number[]} [ from, to ]
+ * @description 取得距今前一年的startOfDay和當日endOfDay
+ * - from: 距今一個年前的 00:00:00 timestamp
+ * - to: 今日 23:59:59 的timestamp
+ */
+export const getThisYear = () => [_getStartOfFnTime(startOfYear), endOfDay()];
 
 /**
  * @name getLastMonthFromNow
