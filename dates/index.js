@@ -11,6 +11,7 @@ export {
   getThisWeek,
   getThisMonth,
   getThisQuarter,
+  getThisYear,
   getLastMonthFromNow,
 } from './duration/getDuration.js';
 
