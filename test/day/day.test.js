@@ -2,8 +2,8 @@ import { describe, expect, test } from "@jest/globals";
 import {
   startOfDay as momentStartOfDay,
   endOfDay as momentEndOfDay,
-} from "../../OriginDate.js";
-import { startOfDay, endOfDay } from "../../dates/index.js";
+} from "../OriginDate.js";
+import { startOfDay, endOfDay } from "../../src/index.js";
 import CASES from "./cases";
 
 /**

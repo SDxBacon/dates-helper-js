@@ -2,8 +2,8 @@ import { describe, expect, test } from "@jest/globals";
 import {
   toDisplayFormat,
   DISPLAY_FORMAT as ORIGIN_DISPLAY_FORMAT,
-} from "../../OriginDate.js";
-import { formatISO9075, DISPLAY_FORMAT } from "../../dates/index.js";
+} from "../OriginDate.js";
+import { formatISO9075, DISPLAY_FORMAT } from "../../src/index.js";
 import CASES from "./cases";
 
 describe("Testing dates/format.js constants and methods.", function () {

@@ -1,23 +1,37 @@
 {
   "name": "dates-helper-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This repository is the bundle of utilities that provide unix epoch data. The whole library is written based on date-fns",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "browser": "./lib/index.js",
+  "module": "./module/index.js",
   "license": "MIT",
-  "dependencies": {
-    "date-fns": "^2.16.1"
-  },
+  "files": [
+    "/lib",
+    "/dist",
+    "/module"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/SDxBacon/dates-helper-js"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build-browser": "cross-env BABEL_ENV=browser babel ./src --out-dir ./lib --source-maps --copy-files",
+    "build-module": "cross-env BABEL_ENV=module babel ./src --out-dir ./module --source-maps --copy-files",
+    "build-node": "babel ./src --out-dir ./dist --source-maps --copy-files",
+    "build": "npm run build-node && npm run build-browser && npm run build-module"
   },
   "type": "module",
+  "dependencies": {
+    "date-fns": "^2.16.1"
+  },
   "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "babel-jest": "^26.6.3",
+    "cross-env": "^7.0.2",
     "jest": "^26.6.3",
     "moment": "^2.29.1"
   },

@@ -5,14 +5,14 @@ import {
   isThisWeek as oldIsThisWeek,
   isThisMonth as oldIsThisMonth,
   isThisQuarter as oldIsThisQuarter,
-} from "../../OriginDate.js";
+} from "../OriginDate.js";
 import {
   isToday,
   isYesterday,
   isThisWeek,
   isThisMonth,
   isThisQuarter,
-} from "../../dates/index.js";
+} from "../../src/index.js";
 import CASES from "./cases";
 
 function _test({ title, arg, m1, m2 }) {
