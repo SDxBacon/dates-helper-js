@@ -1,6 +1,6 @@
 {
   "name": "dates-helper-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This repository is the bundle of utilities that provide unix epoch data. The whole library is written based on date-fns",
   "main": "./dist/index.js",
   "license": "MIT",
