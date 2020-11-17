@@ -1,10 +1,21 @@
 /** exporting day module */
-export { startOfDay, endOfDay } from './day.js';
+import { startOfDay, endOfDay } from "./day.js";
+export { startOfDay, endOfDay };
 
 /** exporting format module */
-export { formatISO9075, DISPLAY_FORMAT } from './format.js';
+import { formatISO9075, DISPLAY_FORMAT } from "./format.js";
+export { formatISO9075, DISPLAY_FORMAT };
 
 /** exporting duration/getDuration */
+import {
+  getYesterday,
+  getToday,
+  getThisWeek,
+  getThisMonth,
+  getThisQuarter,
+  getThisYear,
+  getLastMonthFromNow,
+} from "./duration/getDuration.js";
 export {
   getYesterday,
   getToday,
@@ -13,13 +24,38 @@ export {
   getThisQuarter,
   getThisYear,
   getLastMonthFromNow,
-} from './duration/getDuration.js';
+};
 
 /** exporting duration/isDuration */
-export {
+import {
   isToday,
   isThisWeek,
   isThisMonth,
   isThisQuarter,
   isYesterday,
-} from './duration/isDuration.js';
+} from "./duration/isDuration.js";
+export { isToday, isThisWeek, isThisMonth, isThisQuarter, isYesterday };
+
+/** default export */
+export default {
+  // day module
+  startOfDay,
+  endOfDay,
+  // format module
+  formatISO9075,
+  DISPLAY_FORMAT,
+  // duration/getDuration
+  getYesterday,
+  getToday,
+  getThisWeek,
+  getThisMonth,
+  getThisQuarter,
+  getThisYear,
+  getLastMonthFromNow,
+  // duration/isDuration
+  isToday,
+  isThisWeek,
+  isThisMonth,
+  isThisQuarter,
+  isYesterday,
+};
