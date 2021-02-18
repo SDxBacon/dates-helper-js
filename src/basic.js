@@ -1,6 +1,5 @@
-import sub from 'date-fns/sub';
-import isValid from 'date-fns/isValid';
-import { startOfDay, endOfDay } from './day.js';
+import dayjs from 'dayjs';
+import { getRangeDateFromToday } from './duration/getDuration';
 
 /**
  * _parseTimeInput
@@ -8,23 +7,10 @@ import { startOfDay, endOfDay } from './day.js';
  * @returns {Number|Date}
  */
 export const _parseTimeInput = (time) => {
-  if (isValid(time)) {
+  if (dayjs(time).isValid()) {
     return time;
   }
   return new Date();
-};
-
-/**
- * _getStartOfDayFromToday
- * @param {*} unit
- * @param {*} factor
- */
-export const _getStartOfDayFromToday = (unit, factor = 1) => {
-  return startOfDay(
-    sub(new Date(), {
-      [unit]: factor,
-    })
-  );
 };
 
 /**
@@ -35,7 +21,6 @@ export const _getStartOfDayFromToday = (unit, factor = 1) => {
  * @param {*} factor
  */
 export const _isThis = (start, end, unit, factor) => {
-  const from = _getStartOfDayFromToday(unit, factor);
-  const to = endOfDay();
+  const [from, to] = getRangeDateFromToday(unit);
   return start === from && end === to;
 };
