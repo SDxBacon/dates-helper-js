@@ -1,5 +1,5 @@
+import dayjs from 'dayjs';
 import { _parseTimeInput } from './basic.js';
-import formatISO9075 from 'date-fns/formatISO9075';
 
 /**
  * @name formatISO9075
@@ -7,11 +7,10 @@ import formatISO9075 from 'date-fns/formatISO9075';
  * @return {string} strTime (yyyy-MM-dd HH:mm:ss)
  * @description 將時間轉換為ISO 9075 (yyyy-MM-dd HH:mm:ss)
  */
-const _formatISO9075 = (time) => {
+export const formatISO9075 = (time) => {
   const pTime = _parseTimeInput(time);
-  return formatISO9075(pTime);
+  return dayjs(pTime).format('YYYY-MM-DD HH:mm:ss');
 };
-export { _formatISO9075 as formatISO9075 };
 
 /** */
 export const DISPLAY_FORMAT = 'YYYY/MM/DD';

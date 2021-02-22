@@ -1,16 +1,20 @@
-import getTime from 'date-fns/getTime';
-import startOfWeek from 'date-fns/startOfWeek';
-import startOfMonth from 'date-fns/startOfMonth';
-import startOfQuarter from 'date-fns/startOfQuarter';
-import startOfYear from 'date-fns/startOfYear';
-import startOfYesterday from 'date-fns/startOfYesterday';
-import endOfYesterday from 'date-fns/endOfYesterday';
+import dayjs from 'dayjs';
+import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 
 import { startOfDay, endOfDay } from '../day.js';
-import { _getStartOfDayFromToday } from '../basic.js';
+// import { _getStartOfDayFromToday } from '../basic.js';
 
-const _getStartOfFnTime = (fn) => {
-  return getTime(fn(new Date()));
+export const getRangeDateFromToday = (unit = 'day') => {
+  dayjs.extend(quarterOfYear);
+  const from = dayjs().startOf(unit).valueOf();
+  const to = endOfDay(); // get today's 23:59:59 timestamp
+  return [from, to];
+};
+
+const _getRangeDateByUnitFromNow = (unit = 'day') => {
+  const from = dayjs().subtract(1, unit).startOf('day').valueOf();
+  const to = endOfDay();
+  return [from, to];
 };
 
 /**
@@ -20,8 +24,13 @@ const _getStartOfFnTime = (fn) => {
  * - from: 昨日 00:00:00 的timestamp
  * - to: 昨日 23:59:59 的timestamp
  */
-export const getYesterday = () =>
-  [startOfYesterday(), endOfYesterday()].map((d) => getTime(d));
+export const getYesterday = () => {
+  const mYesterday = dayjs().subtract(1, 'day');
+  return [
+    mYesterday.startOf('day').valueOf(),
+    mYesterday.endOf('day').valueOf(),
+  ];
+};
 
 /**
  * @name getToday
@@ -41,7 +50,7 @@ export const getToday = () => {
  * - from: 這個星期第一天的 00:00:00 的timestamp
  * - to: 今日 23:59:59 的timestamp
  */
-export const getThisWeek = () => [_getStartOfFnTime(startOfWeek), endOfDay()];
+export const getThisWeek = () => getRangeDateFromToday('week');
 
 /**
  * @name getThisMonth
@@ -50,7 +59,7 @@ export const getThisWeek = () => [_getStartOfFnTime(startOfWeek), endOfDay()];
  * - from: 這個月第一天的 00:00:00 timestamp
  * - to: 今日 23:59:59 的timestamp
  */
-export const getThisMonth = () => [_getStartOfFnTime(startOfMonth), endOfDay()];
+export const getThisMonth = () => getRangeDateFromToday('month');
 
 /**
  * @name getThisQuarter
@@ -59,10 +68,9 @@ export const getThisMonth = () => [_getStartOfFnTime(startOfMonth), endOfDay()];
  * - from: 這個季度第一天的的 00:00:00 timestamp
  * - to: 今日 23:59:59 的timestamp
  */
-export const getThisQuarter = () => [
-  _getStartOfFnTime(startOfQuarter),
-  endOfDay(),
-];
+export const getThisQuarter = () => {
+  return getRangeDateFromToday('quarter');
+};
 
 /**
  * @name getThisYear
@@ -71,7 +79,7 @@ export const getThisQuarter = () => [
  * - from: 今年第一天的 00:00:00 timestamp
  * - to: 今日 23:59:59 的timestamp
  */
-export const getThisYear = () => [_getStartOfFnTime(startOfYear), endOfDay()];
+export const getThisYear = () => getRangeDateFromToday('year');
 
 /**
  * @name getLastMonthFromNow
@@ -80,6 +88,4 @@ export const getThisYear = () => [_getStartOfFnTime(startOfYear), endOfDay()];
  * - from: 距今上個月的 00:00:00 timestamp
  * - to: 今日 23:59:59 的timestamp
  */
-export const getLastMonthFromNow = () => {
-  return [_getStartOfDayFromToday('months', 1), endOfDay()];
-};
+export const getLastMonthFromNow = () => _getRangeDateByUnitFromNow('month');

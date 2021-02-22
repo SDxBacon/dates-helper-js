@@ -14,7 +14,7 @@
   },
   "type": "module",
   "dependencies": {
-    "date-fns": "^2.16.1"
+    "dayjs": "^1.10.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",

@@ -1,7 +1,5 @@
 import { _parseTimeInput } from './basic.js';
-import getTime from 'date-fns/getTime';
-import endOfDay from 'date-fns/endOfDay';
-import startOfDay from 'date-fns/startOfDay';
+import dayjs from 'dayjs';
 
 /**
  * @name startOfDay
@@ -12,7 +10,7 @@ import startOfDay from 'date-fns/startOfDay';
  */
 const _startOfDay = (time) => {
   const pTime = _parseTimeInput(time);
-  return getTime(startOfDay(pTime));
+  return dayjs(pTime).startOf('day').valueOf();
 };
 export { _startOfDay as startOfDay };
 
@@ -25,7 +23,7 @@ export { _startOfDay as startOfDay };
  */
 const _endOfDay = (time) => {
   const pTime = _parseTimeInput(time);
-  return getTime(endOfDay(pTime));
+  return dayjs(pTime).endOf('day').valueOf();
 };
 export { _endOfDay as endOfDay };
 
